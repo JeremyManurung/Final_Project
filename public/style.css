@@ -1,0 +1,9 @@
+.Loading {
+    background-color: #FFFDEA;
+    height: 100vh;
+}
+
+.Loading img {
+    display: block;
+    margin: 0 auto;
+}
