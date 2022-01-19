@@ -7,6 +7,9 @@ import buyblue from '../../assets/icons/buy-blue.svg';
 import buywhite from '../../assets/icons/buy-white.svg';
 import coin from '../../assets/icons/coin.svg';
 import { AnimatePresence } from 'framer-motion';
+import { useContext} from 'react';
+import { AppContext } from '../../context/AppContext';
+import { AddProductModal } from '../../components/popup/table1'
 
 function ProductCard({
 	productId,
@@ -14,10 +17,14 @@ function ProductCard({
 	productCat,
 	productName,
 	productCost,
-	currentPoints,
-	onClick,
+	currentPoints
 }) {
 	const [isHover, setIsHover] = useState(null);
+
+	const {
+		user
+	} = useContext(AppContext);
+
 
 	return (
 		<Box
@@ -32,7 +39,8 @@ function ProductCard({
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { duration: 0.6 } }}
 		>
-			{currentPoints >= productCost ? (
+			
+			{user.data.data.poin >= productCost ? (
 				<Image
 					position='absolute'
 					top='0'
@@ -69,6 +77,7 @@ function ProductCard({
 				flexDirection='column'
 				padding='18px 0px'
 			>
+
 				<Text color='#A3A3A3' fontSize='16px'>
 					{productCat}
 				</Text>
@@ -76,8 +85,9 @@ function ProductCard({
 					{productName}
 				</Text>
 			</Box>
+				
 			<AnimatePresence>
-				{isHover === productId && currentPoints >= productCost && (
+				{isHover === productId && user.data.data.poin >= productCost && (
 					<Box
 						position='absolute'
 						top='0'
@@ -109,18 +119,24 @@ function ProductCard({
 							<Image src={coin} />
 						</Box>
 						<Button
-							onClick={onClick}
+							data-bs-toggle="modal" 
+							data-bs-target="#modalFormName"
 							fontSize='18px'
 							color='#616161'
 							bg='white'
 						>
+							
 							Redeem Now
 						</Button>
+						
 					</Box>
+					
 				)}
+				<AddProductModal id={productId}/>
 			</AnimatePresence>
 		</Box>
 	);
+	
 }
 
 export default ProductCard;

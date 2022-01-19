@@ -1,14 +1,9 @@
-import { useState } from 'react';
+import React from 'react';
 import { Box } from '../../components/box/box';
 import { Image } from '../../components/image/image';
 import { Text } from '../../components/text/text';
-import { Button } from '../../components/buttongroup/buttons';
-import buyblue from '../../assets/icons/buy-blue.svg';
-import buywhite from '../../assets/icons/buy-white.svg';
-import coin from '../../assets/icons/coin.svg';
-import { AnimatePresence } from 'framer-motion';
 
-function ProductCard () {
+function HistoryCard({ productImg, productCat, productName, productCost }) {
 	return (
 		<Box
 			position='relative'
@@ -20,8 +15,7 @@ function ProductCard () {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { duration: 0.6 } }}
 		>
-			<Image width='85%' margin='45px 0px 0px 0px' src={"images/g1.png"} />
-			
+			<Image width='85%' margin='45px 0px 0px 0px' src={productImg} />
 			<Box
 				width='80%'
 				borderTop='1px solid #D9D9D9'
@@ -29,14 +23,17 @@ function ProductCard () {
 				padding='18px 0px'
 			>
 				<Text color='#A3A3A3' fontSize='16px'>
-					Phone
+					{productCat}
 				</Text>
 				<Text color='#616161' fontSize='18px'>
-					Iphone
+					{productName}
+				</Text>
+				<Text color='#616161' fontSize='18px'>
+					Paid: {productCost}
 				</Text>
 			</Box>
 		</Box>
 	);
 }
 
-export default ProductCard;
+export default HistoryCard;

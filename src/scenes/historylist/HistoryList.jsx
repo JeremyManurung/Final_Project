@@ -1,7 +1,7 @@
 import { Box } from '../../components/box/box';
-import ProductCard from '../productcard/ProductCard';
+import HistoryCard from '../historycard/HistoryCard';
 
-function ProductList() {
+function HistoryList({ historyList }) {
 	return (
 		<Box
 			as='section'
@@ -16,17 +16,19 @@ function ProductList() {
 			padding='54px 0px'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
+			flexDirection={['column']}
 		>
-			
-				<ProductCard/>
-
-				<ProductCard/>
-
-				<ProductCard/>
-
-				<ProductCard/>
+			{historyList.map((product, index) => (
+				<HistoryCard
+					key={index}
+					productImg={product.img}
+					productCat={product.category}
+					productName={product.name}
+					productCost={product.cost}
+				/>
+			))}
 		</Box>
 	);
 }
 
-export default ProductList;
+export default HistoryList;

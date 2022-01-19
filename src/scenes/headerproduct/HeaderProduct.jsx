@@ -14,7 +14,6 @@ function Header() {
 		user,
 		currentPoints,
 		setCurrentPoints,
-
 	} = useContext(AppContext);
 
 	// useEffect(() => {
@@ -71,7 +70,7 @@ function Header() {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 							>
-								{user.data.toko}
+								{user.data.data.toko}
 								{/* Jeremy */}
 							</Button>
 						{/* </Link> */}
@@ -87,7 +86,7 @@ function Header() {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 						>
-							{currentPoints.points}
+							{user.data.data.poin}
 							{/* 99999999 */}
 							<Image mgL='6px' src={coin} alt='coin' />
 						</Button>

@@ -5,12 +5,7 @@ import ProductCard from '../productcard/ProductCard';
 
 function ProductList({ productList }) {
 	const {currentPoints, setCurrentPoints } = useContext(AppContext);
-
-	const handleRedeem = (id, cost, currentPoints) => {
-		const userNewPoints = () => Math.max(currentPoints - cost, 0);
-		setCurrentPoints({ points: userNewPoints() });
-	};
-
+	console.log("hhahahahah", productList)
 	return (
 		<Box
 			as='section'
@@ -26,18 +21,14 @@ function ProductList({ productList }) {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 		>
-			{productList.map((product) => (
+			{productList?.map((product) => (
 				<ProductCard
-					key={product._id}
-					productId={product._id}
-					productImg={product.nameType}
-					productCat={product.category}
+					key={product.id}
+					productId={product.id}
+					productImg={product.img}
+					productCat={product.nameType}
 					productName={product.namaInstansi}
 					productCost={product.poin}
-					currentPoints={currentPoints.points}
-					onClick={() =>
-						handleRedeem(product._id, product.cost, currentPoints.points)
-					}
 				/>
 			))}
 		</Box>
