@@ -5,7 +5,7 @@ import ProductCard from '../productcard/ProductCard';
 
 function ProductList({ productList }) {
 	const {currentPoints, setCurrentPoints } = useContext(AppContext);
-	console.log("hhahahahah", productList)
+	
 	return (
 		<Box
 			as='section'

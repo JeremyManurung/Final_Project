@@ -12,15 +12,15 @@ import banner from '../../assets/header-x3.png';
 function Header() {
 	const {
 		user,
-		currentPoints,
-		setCurrentPoints,
+		loadingPoin,
+		setLoadingPoin,
 	} = useContext(AppContext);
 
-	// useEffect(() => {
-	// 	user.fetched && setCurrentPoints({ points: user.data.poin });
-	// 	points.fetched && setCurrentPoints({ points: points.data['New Points'] });
-	// }, [user.fetched, points.fetched]);
+	useEffect(() => {
+		// user()
+	}, [loadingPoin]);
 
+	console.log("loadingpoin", loadingPoin)
 
 	const [imgLoading, setImgLoading] = useState(true);
 	return (

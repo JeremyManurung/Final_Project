@@ -12,7 +12,7 @@ import arrowLeft from '../../assets/icons/arrow-left.svg';
 import arrowRight from '../../assets/icons/arrow-right.svg';
 import HeaderProduct from '../headerproduct/HeaderProduct';
 
-function ProductPage() {
+function ProductPage(props) {
 	const { products } = useContext(AppContext);
 	const { sortState: productsSorted, sortElements } = useSort(products.data.data);
 	const {

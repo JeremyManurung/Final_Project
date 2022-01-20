@@ -10,7 +10,6 @@ import HeaderReedem from '../headerreedem/HeaderReedem'
 
 function ProductPage() {
 	return (
-		
 		<Box
 			flexDirection='column'
 			alignItems='center'

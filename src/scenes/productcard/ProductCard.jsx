@@ -86,7 +86,7 @@ function ProductCard({
 				</Text>
 			</Box>
 				
-			<AnimatePresence>
+
 				{isHover === productId && user.data.data.poin >= productCost && (
 					<Box
 						position='absolute'
@@ -133,7 +133,6 @@ function ProductCard({
 					
 				)}
 				<AddProductModal id={productId}/>
-			</AnimatePresence>
 		</Box>
 	);
 	
