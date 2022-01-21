@@ -1,15 +1,33 @@
+import { useContext } from 'react';
+import { useSort } from '../../hooks/useSort';
+import { usePagination } from '../../hooks/usePagination';
+import { AppContext } from '../../context/AppContext';
 import { AnimatePresence } from 'framer-motion';
 import { Box } from '../../components/box/box';
 import { Text } from '../../components/text/text';
 import { Image } from '../../components/image/image';
 import ProductList from '../productlist/ProductList';
+import ReedemList from '../reedemlist/ReedemList'
 import ButtonFilters from '../buttonfilters/ButtonFilters';
 import arrowLeft from '../../assets/icons/arrow-left.svg';
 import arrowRight from '../../assets/icons/arrow-right.svg';
-import HeaderReedem from '../headerreedem/HeaderReedem'
+import HeaderProduct from '../headerproduct/HeaderProduct';
+import HeaderReedem from '../headerreedem/HeaderReedem';
 
-function ProductPage() {
+function ReedemPage(props) {
+	const { reedem } = useContext(AppContext);
+	const { sortState: reedemSorted, sortElements } = useSort(reedem.data.data);
+	const {
+		data: redemList,
+		totalItems,
+		currentItems,
+		nextPage,
+		prevPage,
+		currentPage,
+	} = usePagination(reedemSorted.data, 16);
+
 	return (
+		
 		<Box
 			flexDirection='column'
 			alignItems='center'
@@ -36,7 +54,7 @@ function ProductPage() {
 					borderRight={['none', 'none', '1px solid #D9D9D9']}
 					color='#616161'
 				>
-					
+					{`${currentItems} of ${totalItems} products`}
 				</Text>
 				<Text
 					display={['none', 'none', 'flex']}
@@ -45,31 +63,31 @@ function ProductPage() {
 				>
 					Sort by:
 				</Text>
-				<ButtonFilters/>
+				<ButtonFilters sortElements={sortElements}/>
 				<Box>
 					<AnimatePresence>
-						
+						{currentPage > 1 && (
 							<Image
 								marginRight='10px'
 								pointer
-								
+								onClick={() => prevPage()}
 								src={arrowLeft}
 								alt='arrowLeft'
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 							/>
-						
+						)}
 					</AnimatePresence>
 					<Image
 						pointer
-						// onClick={() => nextPage()}
+						onClick={() => nextPage()}
 						src={arrowRight}
 						alt='arrowRight'
 					/>
 				</Box>
 			</Box>
-			<ProductList  />
+			<ReedemList redemList={redemList} />
 			<Box
 				as='footer'
 				marginBottom='64px'
@@ -80,26 +98,26 @@ function ProductPage() {
 				borderBottom='1px solid #D9D9D9'
 			>
 				<Text padding='0px 24px' color='#616161'>
-					
+					{`${currentItems} of ${totalItems} products`}
 				</Text>
 				<Box>
 					<AnimatePresence>
-					
+						{currentPage > 1 && (
 							<Image
 								marginRight='10px'
 								pointer
-							
+								onClick={() => prevPage()}
 								src={arrowLeft}
 								alt='arrowLeft'
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 							/>
-				
+						)}
 					</AnimatePresence>
 					<Image
 						pointer
-					
+						onClick={() => nextPage()}
 						src={arrowRight}
 						alt='arrowRight'
 					/>
@@ -109,4 +127,4 @@ function ProductPage() {
 	);
 }
 
-export default ProductPage;
+export default ReedemPage;

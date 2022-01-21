@@ -18,13 +18,13 @@ function HistoryList({ historyList }) {
 			animate={{ opacity: 1 }}
 			flexDirection={['column']}
 		>
-			{historyList.map((product, index) => (
+			{historyList.map((history, index) => (
 				<HistoryCard
 					key={index}
-					productImg={product.img}
-					productCat={product.category}
-					productName={product.name}
-					productCost={product.cost}
+					historyImg={history.ImageRequest}
+					historyAmount={history.Amount}
+					historyPoinItems={history.PoinItems}
+					historyType={history.type}
 				/>
 			))}
 		</Box>

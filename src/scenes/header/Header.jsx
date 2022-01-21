@@ -1,7 +1,7 @@
 import SHeader  from '../../pages/SHeader'
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
+import { Link } from 'react-router-dom';
 import { Title } from '../../components/title/title';
 import { Button } from '../../components/buttongroup/buttons';
 import { Image } from '../../components/image/image';
@@ -11,11 +11,18 @@ import banner from '../../assets/header-x3.png';
 
 function Header() {
 	const {
-		currentPoints,
-		setCurrentPoints,
-
+		user,
+		loadingPoin,
+		setLoadingPoin,
 	} = useContext(AppContext);
 
+	useEffect(() => {
+		// user()
+	}, [loadingPoin]);
+
+	console.log("loadingpoin", loadingPoin)
+
+	const [imgLoading, setImgLoading] = useState(true);
 	return (
 		<Box
 			as='header'
@@ -25,7 +32,6 @@ function Header() {
 			display='block'
 		>
 			<SHeader></SHeader>
-			
 			<Box
 				as='nav'
 				position='initial'
@@ -49,6 +55,25 @@ function Header() {
 					justifyContent={['space-between', 'space-between', 'flex-end']}
 					color='#616161'
 				>
+					{/* <Link to='/userhistory'> */}
+							<Button
+								width='120px'
+								height='48px'
+								bg='transparent'
+								focusColor='white'
+								mx={[0, '10px']}
+								borderRadius='none'
+								padding='0'
+								color='#616161'
+								focusScale
+								// onClick={() => setFetchHistory(true)}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+							>
+								{user.data.data.toko}
+								{/* Jeremy */}
+							</Button>
+						{/* </Link> */}
 					
 						<Button
 							width='130px'
@@ -61,7 +86,8 @@ function Header() {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 						>
-							{currentPoints.points}
+							{user.data.data.poin}
+							{/* 99999999 */}
 							<Image mgL='6px' src={coin} alt='coin' />
 						</Button>
 				</Box>
@@ -74,15 +100,16 @@ function Header() {
 				paddingTop={['110px', '110px', '0']}
 				bg='#EDEDED'
 			>
-				
+			
 				<Image
 					width='100%'
 					height='100%'
 					minWidth='100%'
-
+					onLoad={() => setImgLoading(false)}
 					src={banner}
 					alt='banner'
-					
+					initial={{ opacity: 0 }}
+					animate={{ opacity: imgLoading ? 0 : 1 }}
 				/>
 				<Title
 					overflow='hidden'
@@ -90,9 +117,9 @@ function Header() {
 					fontSize={['40px', '36px']}
 					left={['20px', '20px', '54px']}
 					bottom={['20px', '20px', '69px']}
-				
+					opacity={imgLoading ? '0' : '1'}
 				>
-					REEDEM YAOUR POINT, AND <br/>YOU CAN GET MANY EXPENSIVE <br/>GIFT 
+					REEDEM YAOUR POINT, AND <br/>YOU CAN GET MANY EXPENSIVE <br/>GIFT
 				</Title>
 			</Box>
 		</Box>

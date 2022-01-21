@@ -1,7 +1,12 @@
+import { useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 import { Box } from '../../components/box/box';
 import ProductCard from '../productcard/ProductCard';
+import ReedemCard from '../reedemcard/ReedemCard'
 
-function ProductList() {
+function ReedemList({ redemList }) {
+	const {currentPoints, setCurrentPoints } = useContext(AppContext);
+	
 	return (
 		<Box
 			as='section'
@@ -17,16 +22,18 @@ function ProductList() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 		>
-			
-				<ProductCard/>
-
-				<ProductCard/>
-
-				<ProductCard/>
-
-				<ProductCard/>
+			{redemList?.map((redem) => (
+				<ReedemCard
+					key={redem.id}
+					redemId={redem.id}
+					redemImg={redem.img}
+					redemAmount={redem.amount}
+					redemName={redem.nameProduct}
+					redemCost={redem.poin}
+				/>
+			))}
 		</Box>
 	);
 }
 
-export default ProductList;
+export default ReedemList;

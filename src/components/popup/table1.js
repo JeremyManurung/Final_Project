@@ -14,7 +14,7 @@ export const AddProductModal = (props) => {
 	} = useContext(AppContext);
 
 
-    console.log("loadingpoin 2", loadingPoin)
+    // console.log("loadingpoin 2", loadingPoin)
     // const history = useHistory()
 
     const onSubmitx = async() => {
@@ -31,8 +31,6 @@ export const AddProductModal = (props) => {
         // history.go(0)
         setLoadingPoin(!loadingPoin)
 	};
-
-
 
     const onChange = e => {
         setState({

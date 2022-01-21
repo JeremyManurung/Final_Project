@@ -3,7 +3,12 @@ import { Box } from '../../components/box/box';
 import { Image } from '../../components/image/image';
 import { Text } from '../../components/text/text';
 
-function HistoryCard({ productImg, productCat, productName, productCost }) {
+function HistoryCard({ 
+	historyImg, 
+	historyAmount, 
+	historyPoinItems,
+	historyType,
+ }) {
 	return (
 		<Box
 			position='relative'
@@ -15,7 +20,7 @@ function HistoryCard({ productImg, productCat, productName, productCost }) {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { duration: 0.6 } }}
 		>
-			<Image width='85%' margin='45px 0px 0px 0px' src={productImg} />
+			<Image width='85%' margin='45px 0px 0px 0px' src={historyImg} />
 			<Box
 				width='80%'
 				borderTop='1px solid #D9D9D9'
@@ -23,13 +28,13 @@ function HistoryCard({ productImg, productCat, productName, productCost }) {
 				padding='18px 0px'
 			>
 				<Text color='#A3A3A3' fontSize='16px'>
-					{productCat}
+					{historyAmount}
 				</Text>
 				<Text color='#616161' fontSize='18px'>
-					{productName}
+					{historyType}
 				</Text>
 				<Text color='#616161' fontSize='18px'>
-					Paid: {productCost}
+					Paid: {historyPoinItems}
 				</Text>
 			</Box>
 		</Box>

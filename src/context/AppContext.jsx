@@ -7,7 +7,7 @@ function AppProvider({ children }) {
 	const [currentPoints, setCurrentPoints] = useState({ points: 0});
 	const headers = {
 		'Content-Type': 'application/json',
-		Accept: 'application/json',
+		// Accept: 'application/json',
 		Authorization:
 			'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlJvbGUiOiJ1c2VyIiwiZXhwIjoxNjQyOTA5ODM4fQ.eHK_xDL1YIKtCw5N5KcAZbI5KQv9KLnpBIrvUHqs5J0',
 	};
@@ -31,6 +31,10 @@ function AppProvider({ children }) {
 		{ headers }
 	);
 
+	const { data: reedem } = useFetch(
+		`http://localhost:9000/viewProduct`,
+		{ headers }
+	);
 	// const {
 	// 	data: redeem,
 	// 	setData: setRedeem,
@@ -47,6 +51,7 @@ function AppProvider({ children }) {
 				user,
 				history,
 				headers,
+				reedem,
 				products,
 				currentPoints,
 				loadingPoin,

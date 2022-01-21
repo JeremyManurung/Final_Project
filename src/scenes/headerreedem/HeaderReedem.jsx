@@ -1,5 +1,6 @@
 import SHeader  from '../../pages/SHeader'
 import { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import { Title } from '../../components/title/title';
 import { Button } from '../../components/buttongroup/buttons';
@@ -8,8 +9,18 @@ import { Box } from '../../components/box/box';
 import coin from '../../assets/icons/coin.svg';
 import banner from '../../assets/header-x3.png';
 
-function Header() {
+function HeaderReedem() {
+	const {
+		user,
+		loadingPoin,
+		setLoadingPoin,
+	} = useContext(AppContext);
 
+	useEffect(() => {
+		// user()
+	}, [loadingPoin]);
+
+	console.log("loadingpoin", loadingPoin)
 
 	const [imgLoading, setImgLoading] = useState(true);
 	return (
@@ -44,6 +55,25 @@ function Header() {
 					justifyContent={['space-between', 'space-between', 'flex-end']}
 					color='#616161'
 				>
+					{/* <Link to='/userhistory'> */}
+							<Button
+								width='120px'
+								height='48px'
+								bg='transparent'
+								focusColor='white'
+								mx={[0, '10px']}
+								borderRadius='none'
+								padding='0'
+								color='#616161'
+								focusScale
+								// onClick={() => setFetchHistory(true)}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+							>
+								{user.data.data.toko}
+								{/* Jeremy */}
+							</Button>
+						{/* </Link> */}
 					
 						<Button
 							width='130px'
@@ -56,8 +86,8 @@ function Header() {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 						>
-							{/* {currentPoints.points} */}
-							99999999
+							{user.data.data.poin}
+							{/* 99999999 */}
 							<Image mgL='6px' src={coin} alt='coin' />
 						</Button>
 				</Box>
@@ -96,4 +126,4 @@ function Header() {
 	);
 }
 
-export default Header;
+export default HeaderReedem;
