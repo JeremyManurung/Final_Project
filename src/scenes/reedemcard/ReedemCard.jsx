@@ -24,6 +24,8 @@ function ReedemCard({
 		user
 	} = useContext(AppContext);
 
+	const isLogged = !!localStorage.getItem('token');
+    
 
 	return (
 		<Box
@@ -38,8 +40,6 @@ function ReedemCard({
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { duration: 0.6 } }}
 		>
-			
-			{user.data.data.poin >= redemCost ? (
 				<Image
 					position='absolute'
 					top='0'
@@ -49,26 +49,6 @@ function ReedemCard({
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 				/>
-			) : (
-				<Box
-					position='absolute'
-					top='0'
-					right='0'
-					margin='12px'
-					padding='11px 20px'
-					borderRadius='100px'
-					alignItems='center'
-					bg='#666666a9'
-					color='white'
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-				>
-					<Text marginRight='6px' fontSize='14px'>
-						You need poin
-					</Text>
-					<Image src={coin} />
-				</Box>
-			)}
 			<Image width='85%' margin='45px 0px 0px 0px' src={redemImg} />
 			<Box
 				width='80%'
@@ -84,9 +64,7 @@ function ReedemCard({
 					{redemName}
 				</Text>
 			</Box>
-				
-
-				{isHover === redemId && user.data.data.poin >= redemCost && (
+				{isHover === redemId && (
 					<Box
 						position='absolute'
 						top='0'
@@ -117,6 +95,19 @@ function ReedemCard({
 							</Text>
 							<Image src={coin} />
 						</Box>
+
+						{!isLogged ? 
+						<Button
+							disabled
+							data-bs-toggle="modal" 
+							data-bs-target="#modalFormName"
+							fontSize='18px'
+							color='#616161'
+							bg='white'
+						>
+							Buy Now
+						</Button> 
+						:
 						<Button
 							data-bs-toggle="modal" 
 							data-bs-target="#modalFormName"
@@ -126,6 +117,9 @@ function ReedemCard({
 						>
 							Buy Now
 						</Button>
+					
+					}
+						
 						
 					</Box>
 					

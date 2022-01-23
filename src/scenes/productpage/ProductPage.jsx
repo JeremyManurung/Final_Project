@@ -11,6 +11,8 @@ import ButtonFilters from '../buttonfilters/ButtonFilters';
 import arrowLeft from '../../assets/icons/arrow-left.svg';
 import arrowRight from '../../assets/icons/arrow-right.svg';
 import HeaderProduct from '../headerproduct/HeaderProduct';
+import { Navigate } from 'react-router-dom';
+
 
 function ProductPage(props) {
 	const { products } = useContext(AppContext);
@@ -24,6 +26,14 @@ function ProductPage(props) {
 		currentPage,
 	} = usePagination(productsSorted.data, 16);
 
+	const isLogged = !!localStorage.getItem('token');
+    if (!isLogged) {
+        alert("you are not logged in yet!")
+        return (
+            <Navigate to="/" />
+        )
+    }
+	
 	return (
 		
 		<Box

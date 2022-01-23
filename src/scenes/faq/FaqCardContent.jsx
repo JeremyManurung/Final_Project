@@ -5,7 +5,7 @@ import { Text } from '../../components/text/text';
 
 
 
-function ProductCard () {
+function FaqCardContent () {
 	return (
 		<Box
 			position='relative'
@@ -34,4 +34,4 @@ function ProductCard () {
 	);
 }
 
-export default ProductCard;
+export default FaqCardContent;

@@ -9,30 +9,31 @@ function AppProvider({ children }) {
 		'Content-Type': 'application/json',
 		// Accept: 'application/json',
 		Authorization:
-			'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlJvbGUiOiJ1c2VyIiwiZXhwIjoxNjQyOTA5ODM4fQ.eHK_xDL1YIKtCw5N5KcAZbI5KQv9KLnpBIrvUHqs5J0',
+		localStorage.getItem('token'),
+		// 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlJvbGUiOiJ1c2VyIiwiZXhwIjoxNjQyOTA5ODM4fQ.eHK_xDL1YIKtCw5N5KcAZbI5KQv9KLnpBIrvUHqs5J0',
 	};
 
 	const [loadingPoin, setLoadingPoin] = useState(false)
 
 
 	const { data: history } = useFetch(
-		`http://localhost:9000/user/history`,
+		`http://3.21.75.144:8080/user/history`,
 		{ headers }
 	);
 
 	const { data: user} = useFetch(
-		`http://localhost:9000/user/Profile`,
+		`http://3.21.75.144:8080/user/Profile`,
 		{ headers },
 		loadingPoin
 	);
 
 	const { data: products } = useFetch(
-		`http://localhost:9000/viewRedem`,
+		`http://3.21.75.144:8080/viewRedem`,
 		{ headers }
 	);
 
 	const { data: reedem } = useFetch(
-		`http://localhost:9000/viewProduct`,
+		`http://3.21.75.144:8080/viewProduct`,
 		{ headers }
 	);
 	// const {

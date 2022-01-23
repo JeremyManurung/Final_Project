@@ -1,7 +1,10 @@
 import { Box } from '../../components/box/box';
 import HistoryCard from '../historycard/HistoryCard';
+import { Navigate } from 'react-router-dom';
+
 
 function HistoryList({ historyList }) {
+
 	return (
 		<Box
 			as='section'
@@ -18,7 +21,7 @@ function HistoryList({ historyList }) {
 			animate={{ opacity: 1 }}
 			flexDirection={['column']}
 		>
-			{historyList.map((history, index) => (
+			{historyList?.map((history, index) => (
 				<HistoryCard
 					key={index}
 					historyImg={history.ImageRequest}

@@ -32,7 +32,7 @@ export const AddProductModal2 = (props) => {
             .then(response => {
                 console.log("datdatadt", response)
                 state.img = response.data.url
-                fetch(`http://localhost:9000/user/request`, {
+                fetch(`http://3.21.75.144:8080/user/request`, {
                 method: 'POST',
                 body: JSON.stringify({idProduct: state.idProduct, amount: state.amount, img: state.img}),
                 headers: headers

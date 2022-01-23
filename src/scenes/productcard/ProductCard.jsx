@@ -10,6 +10,8 @@ import { AnimatePresence } from 'framer-motion';
 import { useContext} from 'react';
 import { AppContext } from '../../context/AppContext';
 import { AddProductModal } from '../../components/popup/table1'
+import { Navigate } from 'react-router-dom';
+
 
 function ProductCard({
 	productId,
@@ -65,7 +67,7 @@ function ProductCard({
 					animate={{ opacity: 1 }}
 				>
 					<Text marginRight='6px' fontSize='14px'>
-						You need {productCost - currentPoints}
+						You need {productCost - user.data.data.poin}
 					</Text>
 					<Image src={coin} />
 				</Box>
@@ -120,7 +122,7 @@ function ProductCard({
 						</Box>
 						<Button
 							data-bs-toggle="modal" 
-							data-bs-target="#modalFormName"
+							data-bs-target={`#modalFormName${productId}`}
 							fontSize='18px'
 							color='#616161'
 							bg='white'

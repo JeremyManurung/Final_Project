@@ -70,7 +70,7 @@ function HeaderHistory() {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 							>
-								{user.data.data.toko}
+								{user?.data?.data?.toko}
 								{/* Jeremy */}
 							</Button>
 						{/* </Link> */}
@@ -86,7 +86,7 @@ function HeaderHistory() {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 						>
-							{user.data.data.poin}
+							{user?.data?.data?.poin}
 							{/* 99999999 */}
 							<Image mgL='6px' src={coin} alt='coin' />
 						</Button>

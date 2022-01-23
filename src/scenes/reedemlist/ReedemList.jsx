@@ -6,7 +6,8 @@ import ReedemCard from '../reedemcard/ReedemCard'
 
 function ReedemList({ redemList }) {
 	const {currentPoints, setCurrentPoints } = useContext(AppContext);
-	
+	console.log("poinpoin", redemList)
+
 	return (
 		<Box
 			as='section'
@@ -32,8 +33,10 @@ function ReedemList({ redemList }) {
 					redemCost={redem.poin}
 				/>
 			))}
+			
 		</Box>
-	);
+	)
+
 }
 
 export default ReedemList;

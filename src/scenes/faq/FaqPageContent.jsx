@@ -3,7 +3,7 @@ import { Text } from '../../components/text/text';
 import FaqListContent from './FaqListContent';
 import Footer from '../../pages/Footer';
 
-function ProductPage() {
+function FaqPageContent() {
 	return (
         <>
 		<Box
@@ -50,4 +50,4 @@ function ProductPage() {
     
 }
 
-export default ProductPage;
+export default FaqPageContent;

@@ -2,6 +2,8 @@ import React from 'react';
 import { Box } from '../../components/box/box';
 import { Image } from '../../components/image/image';
 import { Text } from '../../components/text/text';
+import { Navigate } from 'react-router-dom';
+
 
 function HistoryCard({ 
 	historyImg, 
@@ -9,6 +11,8 @@ function HistoryCard({
 	historyPoinItems,
 	historyType,
  }) {
+
+
 	return (
 		<Box
 			position='relative'

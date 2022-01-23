@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import { usePagination } from '../../hooks/usePagination';
 import { AppContext } from '../../context/AppContext';
 import { Title } from '../../components/title/title';
@@ -11,11 +11,11 @@ import empty from '../../assets/icons/empty.svg'
 import arrowLeft from '../../assets/icons/arrow-left.svg';
 import arrowRight from '../../assets/icons/arrow-right.svg';
 import HeaderHistory from '../headerhistory/HeaderHistory';
-
+import { Navigate } from 'react-router-dom';
 
 function HistoryPage() {
 	const { history } = useContext(AppContext);
-	const historyReversed = [...history.data.data].reverse();
+	const historyReversed = [...history?.data?.data].reverse();
 	const {
 		data: historyList,
 		totalItems,
@@ -25,7 +25,16 @@ function HistoryPage() {
 		currentPage,
 	} = usePagination(historyReversed, 16);
 
+	const isLogged = !!localStorage.getItem('token');
+    if (!isLogged) {
+        alert("you are not logged in yet!")
+        return (
+            <Navigate to="/" />
+        )
+    }
+
 	return (
+		
 		<Box
 			flexDirection='column'
 			alignItems='center'

@@ -5,11 +5,13 @@ import ProductPage from './scenes/productpage/ProductPage';
 import HistoryPage from './scenes/historypage/HistoryPage';
 import ReedemPage from './scenes/reedempage/ReedemPage';
 import LoadingScreen from './scenes/loadingscreen/LoadingScreen';
-import faq from './pages/faq';
+import FaqPageContent from './scenes/faq/FaqPageContent';
 import DetailFaq from './scenes/detailfaq/DetailFaq';
+import Login from './scenes/login/login'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
+  Routes,
   Switch,
   Link,
   Redirect
@@ -28,17 +30,18 @@ function App() {
         <div>
         {isLoading==true?
         <LoadingScreen/>:
-        <Router>
-            <Switch>
-            <Route exact path="/" component={Hero} />
-            <Route path="/Reedem" component={Reedems} />
-            <Route path="/rewardstore" component={ProductPage} />
-            <Route path="/userhistory" component={HistoryPage} />
-            <Route path="/product" component={ReedemPage}/>
-            <Route path="/faq" component={faq}/>
-            <Route path="/detailfaq" component={DetailFaq}/>
-            </Switch>
-        </Router>
+        <BrowserRouter>
+            <Routes>
+            <Route path="/" element={<Hero/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/Reedem" element={<Reedems/>} />
+            <Route path="/rewardstore" element={<ProductPage/>} />
+            <Route path="/userhistory" element={<HistoryPage/>} />
+            <Route path="/product" element={<ReedemPage/>}/>
+            <Route path="/faq" element={<FaqPageContent/>}/>
+            <Route path="/detailfaq" element={<DetailFaq/>}/>
+            </Routes>
+        </BrowserRouter>
 }
         </div>
     );

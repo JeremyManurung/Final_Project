@@ -3,6 +3,7 @@ import { AppContext } from '../../context/AppContext';
 import { Box } from '../../components/box/box';
 import ProductCard from '../productcard/ProductCard';
 
+
 function ProductList({ productList }) {
 	const {currentPoints, setCurrentPoints } = useContext(AppContext);
 	

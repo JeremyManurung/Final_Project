@@ -3,6 +3,12 @@ import '../App.css'
 import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
+    const logoutHandler = () => {
+        localStorage.removeItem("token");
+    }
+
+    const isLogged = !!localStorage.getItem('token');
+    
     return (
         <div>
         <header style={{padding:"20px 80px 0 80px",backgroundColor:"white"}} class="flex items-center">
@@ -56,24 +62,28 @@ function Header() {
                 </li>
                 </ul>
                 <ul class="flex ml-auto items-center mt-2">
+                {!isLogged ? 
                 <li>
-                    <a 
+                    <Link
+                    to="/login"
                     style={{backgroundColor:"#FF872E", textDecoration:"none"}}
-                    href="/register.html"
                     class="inline-block  border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
                     >
                     Sign Up
-                    </a>
+                    </Link>
                 </li>
-                <li>
-                    <a
+                
+            : <li>
+                    <p
+                    onClick={() => { logoutHandler() }}
                     style={{backgroundColor:"#FF872E", textDecoration:"none"}}
-                    href="/login.html"
                     class="inline-block border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
                     >
-                    My Account
-                    </a>
-                </li>
+                    Log Out
+                    </p>
+                </li>  }
+               
+               
                 </ul>
             </header>
         </div>

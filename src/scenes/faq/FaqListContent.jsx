@@ -1,7 +1,7 @@
 import { Box } from '../../components/box/box';
 import FaqCardContent from './FaqCardContent';
 
-function ProductList() {
+function FaqListContent() {
 	return (
 		<Box
 			as='section'
@@ -37,4 +37,4 @@ function ProductList() {
 	);
 }
 
-export default ProductList;
+export default FaqListContent;
