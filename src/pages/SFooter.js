@@ -1,6 +1,8 @@
 import React from 'react'
 
 function SFooter() {
+    
+
     return (
         <div>
             <section className='container'>

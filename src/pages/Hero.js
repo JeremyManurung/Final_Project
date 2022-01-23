@@ -11,6 +11,8 @@ function Hero() {
     useEffect(() =>{
         AOS.init();
     })
+
+    
     return (
         <div>
             <SHeader/>

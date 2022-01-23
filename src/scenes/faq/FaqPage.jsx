@@ -4,7 +4,7 @@ import FaqList from './FaqList';
 import HeaderFaq from '../headerfaq/HeaderFaq'
 import FaqPageContent from './FaqPageContent'
 
-function ProductPage() {
+function FaqPage() {
 	return (
 		<Box
 			backgroundColor='#F6F6F6'
@@ -45,4 +45,4 @@ function ProductPage() {
 	);
 }
 
-export default ProductPage;
+export default FaqPage;

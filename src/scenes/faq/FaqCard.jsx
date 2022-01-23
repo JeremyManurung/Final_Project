@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 
 
-function ProductCard () {
+function FaqCard () {
 	return (
 		<Box
 			position='relative'
@@ -45,4 +45,4 @@ function ProductCard () {
 	);
 }
 
-export default ProductCard;
+export default FaqCard;
