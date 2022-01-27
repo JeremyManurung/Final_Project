@@ -35,16 +35,7 @@ function AppProvider({ children }) {
 		`http://3.21.75.144:8080/viewProduct`,
 		{ headers }
 	);
-	// const {
-	// 	data: redeem,
-	// 	setData: setRedeem,
-	// } = useFetch(
-	// 		`http://localhost:9000/user/userRedem`,
-	// 	{ method: 'POST', headers }
-	// );
 
-
-	// console.log("tes",products)
 	return (
 		<AppContext.Provider
 			value={{

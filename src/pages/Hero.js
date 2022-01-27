@@ -25,8 +25,7 @@ function Hero() {
                             Start Reedem Your Point
                         </h1>
                         <p className='mb-5 font-weight-light text-grey-500 w-75'>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy.
+                            redeem your points and get attractive, extraordinary prizes that can make the day bright and colorful
                         </p>
                         <Link
                         to="/"

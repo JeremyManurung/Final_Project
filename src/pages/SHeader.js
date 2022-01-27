@@ -82,19 +82,19 @@ function SHeader() {
                     style={{backgroundColor:"#FF872E", textDecoration:"none"}}
                     class="inline-block  border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
                     >
-                    Sign Up
+                    Sign In
                     </Link>
                 </li>
                 
             : <li>
-                    <p
+                    <Link
                     onClick={() => { logoutHandler() }}
                     to="/"
                     style={{backgroundColor:"#FF872E", textDecoration:"none"}}
                     class="inline-block border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
                     >
                     Log Out
-                    </p>
+                    </Link>
                 </li>  }
                
                
