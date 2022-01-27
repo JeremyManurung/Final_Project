@@ -7,19 +7,14 @@ export const AddProductModal = (props) => {
     const [state, setState] = useState("");
     const idproduct = props.id
     const {redeem, setRedeem} = useContext(AppContext);
+
     const {
 		headers,
         loadingPoin,
         setLoadingPoin,
 	} = useContext(AppContext);
 
-
-    // console.log("loadingpoin 2", loadingPoin)
-    // const history = useHistory()
-
     const onSubmitx = async() => {
-        // alert("kasklasklksalk")
-        console.log("testets", headers)
         state.idReward = idproduct
         state.amount = state.amount/1
         
@@ -30,7 +25,6 @@ export const AddProductModal = (props) => {
         headers: headers
         
     })
-        // history.go(0)
         setLoadingPoin(!loadingPoin)
 	};
     
@@ -47,7 +41,7 @@ export const AddProductModal = (props) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-body">
-                        <h5 className="label-modal edit">Add Product</h5>
+                        <h5 className="label-modal edit">Reedem Points</h5>
                         <div>
                             <div className="form-group">
                                 <label>Number</label>
@@ -57,7 +51,7 @@ export const AddProductModal = (props) => {
                                 <label>Amount</label>
                                 <input type="number" className="form-control" value={state.amount} name="amount" onChange={onChange} />
                             </div>
-                            <button  onClick={onSubmitx} style={{ marginTop: "-20px" }} type="button" data-bs-dismiss="modal" className="btn btn-e mb-5">
+                            <button  onClick={onSubmitx} style={{ color:"white" ,backgroundColor:"#A7CAAA", marginTop:"20px" }} type="button" data-bs-dismiss="modal" className="btn btn-e mb-5">
                                 Submit
                             </button>
                         </div>

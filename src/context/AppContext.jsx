@@ -14,7 +14,6 @@ function AppProvider({ children }) {
 
 	const [loadingPoin, setLoadingPoin] = useState(false)
 
-
 	const { data: history } = useFetch(
 		`http://3.21.75.144:8080/user/history`,
 		{ headers }

@@ -18,7 +18,6 @@ export const AddProductModal2 = (props) => {
 	} = useContext(AppContext);
 
     const onSubmity = async() => {
-        // alert("kasklasklksalk")
         console.log("testets", headers)
         state.idProduct = idredem
         state.amount = state.amount/1
@@ -61,17 +60,18 @@ export const AddProductModal2 = (props) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-body">
-                            <h5 className="label-modal edit">Add Product</h5>
+                            <h5 className="label-modal edit">Claim Points</h5>
                             <div>
                                 <div className="form-group" >
-                                    <label>Image </label>
+                                    <label>Invoice</label>
                                     <input type="file" className="form-control form-field d-flex align-items-center" accept="image/*" onChange={(e) => setImage(e.target.files[0])}></input>
                                 </div>
+                                
                                 <div className="form-group">
-                                    <label>Amount  </label>
+                                    <label>Quality</label>
                                     <input type="text" className="form-control form-field d-flex align-items-center" value={state.amount} name="amount" onChange={onChange} />
                                 </div>
-                                <button onClick={onSubmity} style={{ marginTop: "-20px" }} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
+                                <button onClick={onSubmity} style={{color:"white" ,backgroundColor:"#A7CAAA", marginTop:"20px" }} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
                                     Submit
                                 </button>
                             </div>

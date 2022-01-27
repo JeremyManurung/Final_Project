@@ -56,10 +56,12 @@ const Login = () => {
                 <div style={{backgroundColor:"#FF872E"}} class="h-screen flex justify-between items-center">
                     <div
                     class="hidden md:block lg:w-1/3 bg-white h-full auth-background rounded-tr-lg rounded-br-lg">
-                        <img 
+                        <img
+                        style={{height:"100vh",width:"100%"}} 
                         src='images/orang.jpg'/>
                     </div>
                     <div className='wrapper'>
+                        
                         <div className="logo">
                             <h1 style={{fontSize:"25px"}}>POL<span style={{color:"#C17C14"}}>GENT</span></h1> 
                         </div>
@@ -88,6 +90,14 @@ const Login = () => {
                                 <button onClick={onSubmit} type="submit" className="btn btn-signin">Login</button>
                                 <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                             </form>
+                            <div style={{marginTop:"20px"}}>
+                             <Link
+                             style={{textDecoration:"none"}}
+                             to="/"
+                             >   
+                            <p>← Kembali</p>
+                            </Link>
+                        </div>
                         </div>
                     </div>
                     </div>
