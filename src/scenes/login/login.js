@@ -51,18 +51,24 @@ const Login = () => {
 
     return (
         <>
-        <SHeader/>
             {!success ? (
+
+                <div style={{backgroundColor:"#FF872E"}} class="h-screen flex justify-between items-center">
+                    <div
+                    class="hidden md:block lg:w-1/3 bg-white h-full auth-background rounded-tr-lg rounded-br-lg">
+                        <img 
+                        src='images/orang.jpg'/>
+                    </div>
                     <div className='wrapper'>
                         <div className="logo">
                             <h1 style={{fontSize:"25px"}}>POL<span style={{color:"#C17C14"}}>GENT</span></h1> 
                         </div>
                         <div className="modal-body">
-                            <h5 className="label-card">Login</h5>
+                            <h5 className="label-card">Login As Agent</h5>
                             <form className="form-modal">
                                 <div className="mb-3 mt-5">
                                     <label className="form-label ">Email</label>
-                                    <input type="text" className="form-control form-field d-flex align-items-center" id="email" name="email" placeholder="email" value={state.email} onChange={onChange} />
+                                    <input type="text" className="form-control form-field d-flex align-items-center" id="email" name="email" placeholder="Email" value={state.email} onChange={onChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Password</label>
@@ -84,10 +90,10 @@ const Login = () => {
                             </form>
                         </div>
                     </div>
+                    </div>
                 ) :
                     <Navigate to="/"></Navigate>
             }
-            <Footer/>
         </>
     )
 }
