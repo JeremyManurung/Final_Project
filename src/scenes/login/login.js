@@ -6,6 +6,8 @@ import { useContext} from 'react';
 import { AppContext } from '../../context/AppContext';
 import SHeader from '../../pages/SHeader'
 import Footer from '../../pages/Footer';
+import { Link, NavLink } from 'react-router-dom';
+
 
 const Login = () => {
     const {
@@ -66,9 +68,16 @@ const Login = () => {
                                     <label className="form-label">Password</label>
                                     <input type={passwordShown ? "text" : "password"} className="form-control form-field d-flex align-items-center" id="password" name="password" placeholder="Password" value={state.password} onChange={onChange} />
                                 </div>
+                                <div class="d-flex justify-content-between">
                                 <div className="mb-3 form-check">
                                     <input type="checkbox" onChange={togglePassword} className="form-check-input" id="show" />
                                     <label className="form-check-label">Show password</label>
+                                </div>
+                                
+                                 <div className="mb-3 form-check">
+                                    <p><a style={{textDecoration:"none"}} href="http://3.21.75.144:3000" target="_blank" rel="noopener noreferrer">Admin ?</a>.</p>
+                                </div>
+                            
                                 </div>
                                 <button onClick={onSubmit} type="submit" className="btn btn-signin">Login</button>
                                 <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
