@@ -13,11 +13,12 @@ export const useSort = (data) => {
 	const sortElements = (filter) => {
 		const productFilters = {
 			default: () => data,
-			ascending: () => arrayToSort.sort((a, b) => a.cost - b.cost),
-			descending: () => arrayToSort.sort((a, b) => b.cost - a.cost),
+			ascending: () => arrayToSort.sort((a, b) => a.poin - b.poin),
+			descending: () => arrayToSort.sort((a, b) => b.poin - a.poin),
 		};
 		setSortState({ data: productFilters[filter]() });
+		
 	};
-
+	
 	return { sortElements, sortState };
 };

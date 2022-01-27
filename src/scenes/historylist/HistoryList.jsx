@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 
 function HistoryList({ historyList }) {
-
+	console.log("history",historyList)
 	return (
 		<Box
 			as='section'
@@ -24,13 +24,15 @@ function HistoryList({ historyList }) {
 			{historyList?.map((history, index) => (
 				<HistoryCard
 					key={index}
-					historyImg={history.ImageRequest}
+					historyImg={history.Type == "Reward" ? history.Reward.Img : history.Product.Img }
 					historyAmount={history.Amount}
 					historyPoinItems={history.PoinItems}
-					historyType={history.type}
+					historyType={history.Type}
 				/>
 			))}
+			
 		</Box>
+	
 	);
 }
 

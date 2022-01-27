@@ -8,7 +8,7 @@ function ButtonFilters({sortElements}) {
 			<Box my='10px' flex={1}>
 				<ButtonGroup activeColor='#ffffff' activebg='#0AD4FA' hoverGroup focus>
 					<ButtonGP
-						// onClick={() => sortElements('default')}
+						onClick={() => sortElements('default')}
 						fontSize={['15px', '20px']}
 						width={['100%', '172px']}
 						mx={['6px', '6px', '24px']}
@@ -18,7 +18,7 @@ function ButtonFilters({sortElements}) {
 						Most Recent
 					</ButtonGP>
 					<ButtonGP
-						// onClick={() => sortElements('ascending')}
+						onClick={() => sortElements('ascending')}
 						fontSize={['15px', '20px']}
 						width={['100%', '172px']}
 						mx={['6px', '6px', '24px']}
@@ -27,7 +27,7 @@ function ButtonFilters({sortElements}) {
 						Lowest Price
 					</ButtonGP>
 					<ButtonGP
-						// onClick={() => sortElements('descending')}
+						onClick={() => sortElements('descending')}
 						fontSize={['15px', '20px']}
 						width={['100%', '172px']}
 						mx={['6px', '6px', '24px']}

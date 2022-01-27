@@ -1,16 +1,29 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom';
 import '../App.css'
 import { Link, NavLink } from 'react-router-dom';
+import { useContext} from 'react';
+import { Navigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
-function Header() {
+function SHeader() {
+    const navigate = useNavigate();
+
+    const {
+        loadingPoin,
+        setLoadingPoin,
+	} = useContext(AppContext);
+
     const logoutHandler = () => {
         localStorage.removeItem("token");
+        setLoadingPoin(!loadingPoin)
+        navigate('/')
     }
 
     const isLogged = !!localStorage.getItem('token');
     
     return (
-        <div>
+        <div style={{boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"}}>
         <header style={{padding:"20px 80px 0 80px",backgroundColor:"white"}} class="flex items-center">
             <div>
                 <Link
@@ -76,6 +89,7 @@ function Header() {
             : <li>
                     <p
                     onClick={() => { logoutHandler() }}
+                    to="/"
                     style={{backgroundColor:"#FF872E", textDecoration:"none"}}
                     class="inline-block border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
                     >
@@ -90,4 +104,4 @@ function Header() {
     )
 }
 
-export default Header
+export default SHeader

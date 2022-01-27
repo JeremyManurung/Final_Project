@@ -1,4 +1,4 @@
-import GlobalStyle from './globalstyles/globalstyles';
+
 import Header from './scenes/header/Header';
 import ProductPage from './scenes/productpage/ProductPage';
 import HistoryPage from './scenes/historypage/HistoryPage';

@@ -15,7 +15,10 @@ import { Navigate } from 'react-router-dom';
 
 function HistoryPage() {
 	const { history } = useContext(AppContext);
-	const historyReversed = [...history?.data?.data].reverse();
+	const isLogged = !!localStorage.getItem('token');
+	// const historyReversed = [...history.data.data].reverse();
+	const historyReversed = isLogged ? [...history.data.data].reverse() : [];
+	console.log("historyhitory", history)
 	const {
 		data: historyList,
 		totalItems,
@@ -25,7 +28,7 @@ function HistoryPage() {
 		currentPage,
 	} = usePagination(historyReversed, 16);
 
-	const isLogged = !!localStorage.getItem('token');
+	
     if (!isLogged) {
         alert("you are not logged in yet!")
         return (

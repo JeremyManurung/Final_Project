@@ -5,6 +5,7 @@ import Kategori from './Kategori'
 import SFooter from './SFooter'
 import Footer from './Footer'
 import AOS from "aos";
+import { Link, NavLink } from 'react-router-dom';
 import "aos/dist/aos.css"
 
 function Hero() {
@@ -27,13 +28,13 @@ function Hero() {
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy.
                         </p>
-                        <a
+                        <Link
+                        to="/"
                         style={{backgroundColor:"#FF872E", textDecoration:"none"}}
-                        href="/login.html"
                         class="inline-block border hover:bg-white hover:bg-opacity-25 text-white font-light w-50 text-center px-6 py-1 text-lg rounded-full"
                         >
                         Show Me More
-                        </a>
+                        </Link>
                     </div>
 
                 <div className="col-6 pl-5">

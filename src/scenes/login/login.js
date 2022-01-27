@@ -2,8 +2,17 @@ import './login.css'
 import { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import { useContext} from 'react';
+import { AppContext } from '../../context/AppContext';
+import SHeader from '../../pages/SHeader'
+import Footer from '../../pages/Footer';
 
 const Login = () => {
+    const {
+        loadingPoin,
+        setLoadingPoin,
+	} = useContext(AppContext);
+
 
     const [state, setState] = useState("");
     const [passwordShown, setPasswordShown] = useState(false);
@@ -35,14 +44,16 @@ const Login = () => {
                 setErrMsg('Wrong Username or Password!');
             }
         }
+        setLoadingPoin(!loadingPoin)
     }
 
     return (
         <>
+        <SHeader/>
             {!success ? (
                     <div className='wrapper'>
-                        <div className="logo-modal">
-                            <p>Polgent</p>
+                        <div className="logo">
+                            <h1 style={{fontSize:"25px"}}>POL<span style={{color:"#C17C14"}}>GENT</span></h1> 
                         </div>
                         <div className="modal-body">
                             <h5 className="label-card">Login</h5>
@@ -67,6 +78,7 @@ const Login = () => {
                 ) :
                     <Navigate to="/"></Navigate>
             }
+            <Footer/>
         </>
     )
 }

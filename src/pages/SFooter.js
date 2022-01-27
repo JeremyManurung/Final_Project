@@ -4,7 +4,7 @@ function SFooter() {
     
 
     return (
-        <div>
+        <div >
             <section className='container'>
                 <div style={{paddingBottom:"10%",paddingTop:"5%"}} className='row align-items-center'>
                     <div className="col-6 pl-5">

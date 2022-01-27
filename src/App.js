@@ -5,7 +5,7 @@ import ProductPage from './scenes/productpage/ProductPage';
 import HistoryPage from './scenes/historypage/HistoryPage';
 import ReedemPage from './scenes/reedempage/ReedemPage';
 import LoadingScreen from './scenes/loadingscreen/LoadingScreen';
-import FaqPageContent from './scenes/faq/FaqPageContent';
+import Faq from './scenes/faq/Faq'
 import DetailFaq from './scenes/detailfaq/DetailFaq';
 import Login from './scenes/login/login'
 import {
@@ -38,7 +38,7 @@ function App() {
             <Route path="/rewardstore" element={<ProductPage/>} />
             <Route path="/userhistory" element={<HistoryPage/>} />
             <Route path="/product" element={<ReedemPage/>}/>
-            <Route path="/faq" element={<FaqPageContent/>}/>
+            <Route path="/faq" element={<Faq/>}/>
             <Route path="/detailfaq" element={<DetailFaq/>}/>
             </Routes>
         </BrowserRouter>

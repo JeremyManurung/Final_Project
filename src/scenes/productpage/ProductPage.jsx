@@ -16,6 +16,7 @@ import { Navigate } from 'react-router-dom';
 
 function ProductPage(props) {
 	const { products } = useContext(AppContext);
+	const isLogged = !!localStorage.getItem('token');
 	const { sortState: productsSorted, sortElements } = useSort(products.data.data);
 	const {
 		data: productList,
@@ -26,7 +27,7 @@ function ProductPage(props) {
 		currentPage,
 	} = usePagination(productsSorted.data, 16);
 
-	const isLogged = !!localStorage.getItem('token');
+	
     if (!isLogged) {
         alert("you are not logged in yet!")
         return (

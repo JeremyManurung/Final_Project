@@ -10,6 +10,7 @@ import coin from '../../assets/icons/coin.svg';
 import banner from '../../assets/header-x3.png';
 
 function Header() {
+	const isLogged = !!localStorage.getItem('token');
 	const {
 		user,
 		loadingPoin,
@@ -24,6 +25,8 @@ function Header() {
 
 	const [imgLoading, setImgLoading] = useState(true);
 	return (
+		<>
+		{isLogged ?
 		<Box
 			as='header'
 			position='relative'
@@ -123,6 +126,8 @@ function Header() {
 				</Title>
 			</Box>
 		</Box>
+		: null}
+		</>
 	);
 }
 

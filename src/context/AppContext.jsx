@@ -10,7 +10,6 @@ function AppProvider({ children }) {
 		// Accept: 'application/json',
 		Authorization:
 		localStorage.getItem('token'),
-		// 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlJvbGUiOiJ1c2VyIiwiZXhwIjoxNjQyOTA5ODM4fQ.eHK_xDL1YIKtCw5N5KcAZbI5KQv9KLnpBIrvUHqs5J0',
 	};
 
 	const [loadingPoin, setLoadingPoin] = useState(false)
