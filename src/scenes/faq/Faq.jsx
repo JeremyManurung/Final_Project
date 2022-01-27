@@ -5,7 +5,6 @@ function Faq() {
 	return (
         <>
         <FaqPage/>
-        <FaqPageContent/>
         </>
     )
 }
